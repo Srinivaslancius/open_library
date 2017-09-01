@@ -10,7 +10,7 @@ if($setcon == 1) {
 	$password = "";
 	$dbname = "";
 } else {
-	$servername = "192.168.0.101";	
+	$servername = "192.168.0.115";	
 	$username = "root";
 	$password = "root";
 	$dbname = "open_library";
