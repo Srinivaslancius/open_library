@@ -1,12 +1,10 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-
-<?php 
+<?php
 if (!isset($_POST['submit']))  {
-            echo "";
+            echo "fail";
 } else  {
     //Save data into database
     $book_name = $_POST['book_name'];
-    /*$category_id = implode(',',$_POST['category_id']);*/
     $author = $_POST['author'];
     $publisher = $_POST['publisher'];
     $isbn = $_POST['isbn'];
@@ -23,28 +21,15 @@ if (!isset($_POST['submit']))  {
     $created_by = $_POST['created_by'];
     $created_at = $_POST['created_at'];
     $status = $_POST['status'];
-    
-    //save product images into product_images table    
-
+        //save product images into product_images table
     $product_images1 = $_FILES['product_images']['name'];
     $file_tmp = $_FILES["product_images"]["tmp_name"];
     $file_destination = '../uploads/book_images/' . $product_images1;
-    move_uploaded_file($file_tmp, $file_destination);     
+    move_uploaded_file($file_tmp, $file_destination);
     
     $sql1 = "INSERT INTO products (`book_name`,`author`,`publisher`,`isbn`,`publish_year`,`status`,`language`,`generate_type`, `no_of_pages` ,`contact_no` , `price`, `user_id`,`user_name`, `book_info`, `book_image`, `availability_id`, `created_by`, `created_at` ) VALUES ('$book_name','$author','$publisher', '$isbn','$publish_year','$status','$language','$generate_type','$no_of_pages','$contact_no','$price','$user_id','$user_name','$book_info','$product_images1','$avail_id','$created_by','$created_at')";
     $result1 = $conn->query($sql1);
-    $last_id = $conn->insert_id;    
-    
-    /*foreach($product_images as $key=>$value){
-
-        $product_images1 = $_FILES['product_images']['name'][$key];
-        $file_tmp = $_FILES["product_images"]["tmp_name"][$key];
-        $file_destination = '../uploads/product_images/' . $product_images1;
-        move_uploaded_file($file_tmp, $file_destination);        
-        $sql = "INSERT INTO product_images ( `product_id`,`product_image`) VALUES ('$last_id','$product_images1')";
-        $result = $conn->query($sql);
-    }*/
-    
+    $last_id = $conn->insert_id;
     if( $result1 == 1){
     echo "<script type='text/javascript'>window.location='products.php?msg=success'</script>";
     } else {
@@ -57,67 +42,55 @@ if (!isset($_POST['submit']))  {
           <div class="panel-heading">
             <h3 class="m-y-0">Products</h3>
           </div>
-          <div class="panel-body">            
+          <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Book Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="book_name" placeholder="Book Name" data-error="Please enter Book Name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Author</label>
                     <input type="text" class="form-control" id="form-control-2" name="author" placeholder="Author" data-error="Please enter Author Name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Publisher</label>
                     <input type="text" class="form-control" id="form-control-2" name="publisher" placeholder="Publisher" data-error="Please enter Publisher Name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Isbn</label>
                     <input type="text" class="form-control" id="form-control-2" name="isbn" placeholder="isbn" data-error="Please enter Isbn." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Publish Year</label>
                     <input type="text" class="form-control" id="form-control-2" name="publish_year" placeholder="Publish Year" data-error="Please enter Publish year." required>
                     <div class="help-block with-errors"></div>
                   </div>
-                  
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Language</label>
                     <input type="text" class="form-control" id="form-control-2" name="language" placeholder="Language" data-error="Please enter Language." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
-                  
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Generate Type</label>
                     <input type="text" class="form-control" id="form-control-2" name="generate_type" placeholder="Generate Type" data-error="Please enter Generate Type." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Number Of Pages</label>
                     <input type="text" class="form-control" id="form-control-2" name="no_of_pages" placeholder="Number Of Pages" data-error="Please enter Number of Pages." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Contact Number</label>
                     <input type="text" class="form-control" id="form-control-2" name="contact_no" placeholder="Contact Number" data-error="Please enter Contact Number." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Price</label>
                     <input type="text" class="form-control" id="form-control-2" name="price" placeholder="Price" data-error="Please enter Price." required>
@@ -128,13 +101,11 @@ if (!isset($_POST['submit']))  {
                     <input type="text" class="form-control" id="form-control-2" name="user_id" placeholder="User Id" data-error="Please enter User Id." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">User Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="user_name" placeholder="User Name" data-error="Please enter User Name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Book Information</label>
                     <input type="text" class="form-control" id="form-control-2" name="book_info" placeholder="Book Information" data-error="Please enter Book Information." required>
@@ -178,7 +149,7 @@ if (!isset($_POST['submit']))  {
                 </form>
               </div>
             </div>
-            <hr>           
+            <hr>
           </div>
         </div>
       </div>

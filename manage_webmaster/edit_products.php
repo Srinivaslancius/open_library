@@ -1,13 +1,12 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-<?php  
+<?php
 $id = $_GET['uid'];
 if (!isset($_POST['submit']))  {
             echo "fail";
 } else  {
     //echo "<pre>"; print_r($_POST); die;
     //Save data into database
-        $book_name = $_POST['book_name'];
-    /*$category_id = implode(',',$_POST['category_id']);*/
+    $book_name = $_POST['book_name'];
     $author = $_POST['author'];
     $publisher = $_POST['publisher'];
     $isbn = $_POST['isbn'];
@@ -31,11 +30,11 @@ if (!isset($_POST['submit']))  {
     $product_images1 = $_FILES['product_images']['name'];
     if($product_images1 !='') {
         $target_dir = "../uploads/book_images/";
-        $target_file = $target_dir . basename($_FILES["product_images"]["name"]);       
+        $target_file = $target_dir . basename($_FILES["product_images"]["name"]);
         $getImgUnlink = getImageUnlink('book_image','products','id',$id,$target_dir);
-        if(move_uploaded_file($_FILES["product_images"]["tmp_name"], $target_file)){ 
+        if(move_uploaded_file($_FILES["product_images"]["tmp_name"], $target_file)){
         
-        $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages=$no_of_pages, contact_no = '$contact_no', price = '$price', user_id = '$user_id', user_name = '$user_name',  book_info = '$book_info', availability_id = '$avail_id', created_by = '$created_by', created_at = '$created_at', book_image='$product_images1' WHERE id = '$id'"; 
+        $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages=$no_of_pages, contact_no = '$contact_no', price = '$price', user_id = '$user_id', user_name = '$user_name',  book_info = '$book_info', availability_id = '$avail_id', created_by = '$created_by', created_at = '$created_at', book_image='$product_images1' WHERE id = '$id'";
         
             if ($conn->query($sql1) === TRUE) {
                 echo "<script type='text/javascript'>window.location='products.php?msg=success'</script>";
@@ -46,32 +45,13 @@ if (!isset($_POST['submit']))  {
             echo "Sorry, there was an error uploading your file.";
         }
     } else {
-     $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages=$no_of_pages, contact_no = '$contact_no', price = '$price', user_id = '$user_id', user_name = '$user_name',  book_info = '$book_info', availability_id = '$avail_id', created_by = '$created_by', created_at = '$created_at', book_image='$product_images1' WHERE id = '$id'"; 
+     $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages=$no_of_pages, contact_no = '$contact_no', price = '$price', user_id = '$user_id', user_name = '$user_name',  book_info = '$book_info', availability_id = '$avail_id', created_by = '$created_by', created_at = '$created_at', book_image='$product_images1' WHERE id = '$id'";
      if ($conn->query($sql1) === TRUE) {
         echo "<script type='text/javascript'>window.location='products.php?msg=success'</script>";
     } else {
         echo "<script type='text/javascript'>window.location='products.php?msg=fail'</script>";
     }
 }
-
-    /*$product_images = $_FILES['product_images']['name'];
-    foreach($product_images as $key=>$value){
-
-        $product_images1 = $_FILES['product_images']['name'][$key];
-        $file_tmp = $_FILES["product_images"]["tmp_name"][$key];
-        $file_destination = '../uploads/product_images/' . $product_images1;
-        if($product_images1!=''){
-            move_uploaded_file($file_tmp, $file_destination);        
-            $sql = "INSERT INTO product_images ( `product_id`,`product_image`) VALUES ('$id','$product_images1')";
-            $result = $conn->query($sql);
-        }        
-    }
-     
-     if($result1==1){
-        echo "<script>alert('Data Updated Successfully');window.location.href='products.php';</script>";
-    } else {
-       echo "<script>alert('Data Updation Failed');window.location.href='products.php';</script>";
-    }*/
 }
 ?>
 
@@ -87,13 +67,11 @@ $getProducts = $getProductsData->fetch_assoc();
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Book Name</label>
                     <input type="text" class="form-control" id="form-control-2" name="book_name" required value="<?php echo $getProducts['book_name']; ?>" data-error="Please enter Book Name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Author</label>
                     <input type="text" class="form-control" id="form-control-2" name="author" required value="<?php echo $getProducts['author']; ?>" data-error="Please enter Author Name." required>
@@ -192,7 +170,7 @@ $getProducts = $getProductsData->fetch_assoc();
                 </form>
               </div>
             </div>
-            <hr>           
+            <hr> 
           </div>
         </div>
       </div>

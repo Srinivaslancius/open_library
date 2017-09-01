@@ -47,7 +47,22 @@
                         <div class="modal-body">
                          <div class="Title"><strong>Book Name:</strong>&nbsp<?php echo $row['book_name'];?> </div>
                           <div class="Description"><strong>Author:</strong>&nbsp<?php echo $row['author'];?> </div>
-                          <div class="Description"><strong>Book Price:</strong>&nbsp<?php echo $row['price'];?> </div>
+                          <div class="publisher"><strong>Publisher:</strong>&nbsp<?php echo $row['publisher'];?></div>
+                          <div class="isbn"><strong>Isbn:</strong>&nbsp<?php echo $row['isbn'];?></div>
+                          <div class="Description"><strong>Publish Year:</strong>&nbsp<?php echo $row['publish_year'];?></div>
+                          <div class="Description"><strong>Language:</strong>&nbsp<?php echo $row['language'];?></div>
+                          <div class="Description"><strong>Generate Type:</strong>&nbsp<?php echo $row['generate_type'];?></div>
+                          <div class="Description"><strong>Number Of Pages:</strong>&nbsp<?php echo $row['no_of_pages'];?></div>
+                          <div class="Description"><strong>Contact Number:</strong>&nbsp<?php echo $row['contact_no'];?></div>
+                          <div class="Description"><strong>Price:</strong>&nbsp<?php echo $row['price'];?></div>
+                          <div class="Description"><strong>User Id:</strong>&nbsp<?php echo $row['user_id'];?></div>
+                          <div class="Description"><strong>User Name:</strong>&nbsp<?php echo $row['user_name'];?></div>
+                          <div class="Description"><strong>Book Information:</strong>&nbsp<?php echo $row['book_info'];?></div>
+                          <div class="Description"><strong>Availability Id:</strong>&nbsp<?php echo $row['availability_id'];?></div>
+                          <div class="Description"><strong>Created By:</strong>&nbsp<?php echo $row['created_by'];?> </div>
+                          <div class="Description"><strong>Created At:</strong>&nbsp<?php echo $row['created_at'];?> </div>
+                          <div class="Description"><strong>Status:</strong>&nbsp<?php echo $row['status'];?> </div>
+                          <div class="Description"><strong>Image:</strong>&nbsp<?php echo $row['book_image'];?> </div>
                         </div>
                         <div class="modal-footer">
                         <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
