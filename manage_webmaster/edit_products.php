@@ -30,7 +30,7 @@ if (!isset($_POST['submit']))  {
 
     $product_images1 = $_FILES['product_images']['name'];
     if($product_images1 !='') {
-        $target_dir = "../uploads/product_images/";
+        $target_dir = "../uploads/book_images/";
         $target_file = $target_dir . basename($_FILES["product_images"]["name"]);       
         $getImgUnlink = getImageUnlink('book_image','products','id',$id,$target_dir);
         if(move_uploaded_file($_FILES["product_images"]["tmp_name"], $target_file)){ 
@@ -156,7 +156,7 @@ $getProducts = $getProductsData->fetch_assoc();
                   </div>
                   <div class="form-group">
                     <label for="form-control-4" class="control-label">Book Image</label>
-                    <img src="<?php echo $base_url . 'uploads/product_images/'.$getProducts['book_image'] ?>"  id="output" height="100" width="100"/>
+                    <img src="<?php echo $base_url . 'uploads/book_images/'.$getProducts['book_image'] ?>"  id="output" height="100" width="100"/>
                     <label class="btn btn-default file-upload-btn">
                         Choose file...
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="product_images" id="product_image"  onchange="loadFile(event)"  multiple="multiple" >

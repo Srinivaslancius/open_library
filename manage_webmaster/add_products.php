@@ -28,7 +28,7 @@ if (!isset($_POST['submit']))  {
 
     $product_images1 = $_FILES['product_images']['name'];
     $file_tmp = $_FILES["product_images"]["tmp_name"];
-    $file_destination = '../uploads/product_images/' . $product_images1;
+    $file_destination = '../uploads/book_images/' . $product_images1;
     move_uploaded_file($file_tmp, $file_destination);     
     
     $sql1 = "INSERT INTO products (`book_name`,`author`,`publisher`,`isbn`,`publish_year`,`status`,`language`,`generate_type`, `no_of_pages` ,`contact_no` , `price`, `user_id`,`user_name`, `book_info`, `book_image`, `availability_id`, `created_by`, `created_at` ) VALUES ('$book_name','$author','$publisher', '$isbn','$publish_year','$status','$language','$generate_type','$no_of_pages','$contact_no','$price','$user_id','$user_name','$book_info','$product_images1','$avail_id','$created_by','$created_at')";
