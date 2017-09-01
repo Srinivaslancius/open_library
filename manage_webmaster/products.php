@@ -14,8 +14,9 @@
                 <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Product Name</th>
-                    <th>Product Price</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Book Price</th>
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -24,8 +25,9 @@
                   <?php while ($row = $getProductsData->fetch_assoc()) { ?>
                   <tr>
                     <td><?php echo $i;?></td>
-                    <td><?php echo $row['product_name'];?></td>
-                    <td><?php echo $row['product_price'];?></td>
+                    <td><?php echo $row['book_name'];?></td>
+                    <td><?php echo $row['author'];?></td>
+                    <td><?php echo $row['price'];?></td>
                                        
                     <td><?php if ($row['status']==0) { echo "<span class='label label-outline-success check_active open_cursor' data-incId=".$row['id']." data-status=".$row['status']." data-tbname='products
                     '>Active</span>" ;} else { echo "<span class='label label-outline-info check_active open_cursor' data-status=".$row['status']." data-incId=".$row['id']." data-tbname='products'>In Active</span>" ;} ?></td>
@@ -40,11 +42,12 @@
                                 <i class="zmdi zmdi-close"></i>
                               </span>
                             </button>
-                            <center><h4 class="modal-title">Product Information</h4></center>
+                            <center><h4 class="modal-title">Book Information</h4></center>
                           </div>
                         <div class="modal-body">
-                         <div class="Title"><strong>Product Name:</strong>&nbsp<?php echo $row['product_name'];?> </div>
-                          <div class="Description"><strong>Product Price:</strong>&nbsp<?php echo $row['product_price'];?> </div>
+                         <div class="Title"><strong>Book Name:</strong>&nbsp<?php echo $row['book_name'];?> </div>
+                          <div class="Description"><strong>Author:</strong>&nbsp<?php echo $row['author'];?> </div>
+                          <div class="Description"><strong>Book Price:</strong>&nbsp<?php echo $row['price'];?> </div>
                         </div>
                         <div class="modal-footer">
                         <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
