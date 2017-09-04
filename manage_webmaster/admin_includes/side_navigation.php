@@ -58,7 +58,7 @@
             <li  class="<?php if($page_name == 'products.php' || $page_name == 'add_products.php' || $page_name == 'edit_products.php') { echo "active"; } ?>">
               <a href="products.php" aria-haspopup="true">
                 <span class="menu-icon">
-                   <i class="zmdi zmdi-shopping-basket zmdi-hc-fw"></i>
+                   <i class="zmdi zmdi-book-image zmdi-hc-fw"></i>
                 </span> 
                 <span class="menu-text">Books</span>
               </a>

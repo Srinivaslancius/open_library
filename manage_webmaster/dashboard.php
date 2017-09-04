@@ -47,7 +47,7 @@
                 <div class="wt-number"><?php echo getRowsCount('products')?></div>
               </div>
               <div class="wt-icon">
-                <i class="zmdi zmdi-shopping-basket zmdi-hc-fw"></i>
+                <i class="zmdi zmdi-book-image zmdi-hc-fw"></i>
               </div>
             </div>
           </div>
