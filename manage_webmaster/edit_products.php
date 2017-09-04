@@ -61,7 +61,7 @@ $getProducts = $getProductsData->fetch_assoc();
 <div class="site-content">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="m-y-0">Products</h3>
+            <h3 class="m-y-0">Books</h3>
           </div>
           <div class="panel-body">            
             <div class="row">
