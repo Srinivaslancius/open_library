@@ -5,7 +5,7 @@
         
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
-            <a href="add_products.php" style="float:right">Add Products</a>
+            <a href="add_products.php" style="float:right">Add Books</a>
             <h3 class="m-t-0 m-b-5">Products</h3>            
           </div>
           <div class="panel-body">
@@ -54,13 +54,13 @@
                           <div class="Description"><strong>Generate Type:</strong>&nbsp<?php echo $row['generate_type'];?></div>
                           <div class="Description"><strong>Number Of Pages:</strong>&nbsp<?php echo $row['no_of_pages'];?></div>
                           <div class="Description"><strong>Contact Number:</strong>&nbsp<?php echo $row['contact_no'];?></div>
-                          <div class="Description"><strong>Price:</strong>&nbsp<?php echo $row['price'];?></div>
-                          <div class="Description"><strong>User Id:</strong>&nbsp<?php echo $row['user_id'];?></div>
-                          <div class="Description"><strong>User Name:</strong>&nbsp<?php echo $row['user_name'];?></div>
                           <div class="Description"><strong>Book Information:</strong>&nbsp<?php echo $row['book_info'];?></div>
-                          <div class="Description"><strong>Availability Id:</strong>&nbsp<?php echo $row['availability_id'];?></div>
+                          <div class="Description"><strong>Price:</strong>&nbsp<?php echo $row['price'];?></div>
+                          <!-- <div class="Description"><strong>User Id:</strong>&nbsp<?php echo $row['user_id'];?></div>
+                          <div class="Description"><strong>User Name:</strong>&nbsp<?php echo $row['user_name'];?></div>                    
+                           <div class="Description"><strong>Availability Id:</strong>&nbsp<?php echo $row['availability_id'];?></div>
                           <div class="Description"><strong>Created By:</strong>&nbsp<?php echo $row['created_by'];?> </div>
-                          <div class="Description"><strong>Created At:</strong>&nbsp<?php echo $row['created_at'];?> </div>
+                          <div class="Description"><strong>Created At:</strong>&nbsp<?php echo $row['created_at'];?> </div>  -->
                           <div class="Description"><strong>Status:</strong>&nbsp<?php echo $row['status'];?> </div>
                           <div class="Description"><strong>Image:</strong>&nbsp<?php echo $row['book_image'];?> </div>
                         </div>

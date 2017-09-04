@@ -58,15 +58,15 @@
             <li  class="<?php if($page_name == 'products.php' || $page_name == 'add_products.php' || $page_name == 'edit_products.php') { echo "active"; } ?>">
               <a href="products.php" aria-haspopup="true">
                 <span class="menu-icon">
-                   <i class="zmdi zmdi-collection-image zmdi-hc-fw"></i>
+                   <i class="zmdi zmdi-shopping-basket zmdi-hc-fw"></i>
                 </span> 
-                <span class="menu-text">Products</span>
+                <span class="menu-text">Books</span>
               </a>
             </li>
             <li  class="<?php if($page_name == 'orders.php') { echo "active"; } ?>">
               <a href="orders.php" aria-haspopup="true">
                 <span class="menu-icon">
-                   <i class="zmdi zmdi-collection-image zmdi-hc-fw"></i>
+                   <i class="zmdi zmdi-shopping-cart-plus zmdi-hc-fw"></i>
                 </span> 
                 <span class="menu-text">Orders</span>
               </a>
