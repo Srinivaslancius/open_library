@@ -6,7 +6,7 @@
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
             <a href="add_products.php" style="float:right">Add Books</a>
-            <h3 class="m-t-0 m-b-5">Products</h3>            
+            <h3 class="m-t-0 m-b-5">Books</h3>            
           </div>
           <div class="panel-body">
             <div class="table-responsive">
