@@ -36,7 +36,7 @@
                 <div class="wt-number"><?php echo getRowsCount('orders')?></div>
               </div>
               <div class="wt-icon">
-                <i class="zmdi zmdi-email-open"></i>
+                <i class="zmdi zmdi-shopping-cart-plus zmdi-hc-fw"></i>
               </div>
             </div>
           </div>

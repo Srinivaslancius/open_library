@@ -40,28 +40,35 @@
                                 <i class="zmdi zmdi-close"></i>
                               </span>
                             </button>
-                            <center><h4 class="modal-title">ContentPage Information</h4></center>
+                            <center><h4 class="modal-title">ContentPages Information</h4></center>
                           </div>
-                        <div class="modal-body">
-                         <div class="Title"><strong>Title:</strong>&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row['title'];?> </div>
-                          <div class="Description"><strong>Description:</strong>&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row['description'];?> </div>
-                        </div>
-                        <div class="modal-footer">
-                        <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
-                          <button type="button" data-dismiss="modal" class="btn btn-success">Close</button>
-                          <style>
-                          .modal-body{
-                            font-size:15px;
-                            text-align:justify;
-                            padding-left:110px;
-                            padding-top:30px;
-                            font-family:Roboto,sans-serif;
-                          }
-                          </style>
+                          <div class="modal-body" id="modal_body">
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Title:</div>
+                              <div class="col-sm-6"><?php echo $row['title'];?></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-2"></div>
+                              <div class="col-sm-4">Description:</div>
+                              <div class="col-sm-6"><?php echo $row['description'];?></div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
+                            <button type="button" data-dismiss="modal" class="btn btn-success">Close</button>
+                              <style>
+                              #modal_body{
+                                font-size:14px;
+                                padding-top:30px;
+                                padding-left: 0px;
+                                font-family:Roboto,sans-serif;
+                              }
+                              </style>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   <!-- End Modal Box  here -->
                   </tr>
                   <?php  $i++; } ?>                  

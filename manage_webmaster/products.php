@@ -35,7 +35,7 @@
                      <!-- Open Modal Box  here -->
                     <div id="<?php echo $row['id']; ?>" class="modal fade" tabindex="-1" role="dialog">
                       <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content animated flipInX">
                           <div class="modal-header bg-success">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">
@@ -44,37 +44,83 @@
                             </button>
                             <center><h4 class="modal-title">Book Information</h4></center>
                           </div>
-                        <div class="modal-body">
-                         <div class="Title"><strong>Book Name:</strong>&nbsp<?php echo $row['book_name'];?> </div>
-                          <div class="Description"><strong>Author:</strong>&nbsp<?php echo $row['author'];?> </div>
-                          <div class="publisher"><strong>Publisher:</strong>&nbsp<?php echo $row['publisher'];?></div>
-                          <div class="isbn"><strong>Isbn:</strong>&nbsp<?php echo $row['isbn'];?></div>
-                          <div class="Description"><strong>Publish Year:</strong>&nbsp<?php echo $row['publish_year'];?></div>
-                          <div class="Description"><strong>Language:</strong>&nbsp<?php echo $row['language'];?></div>
-                          <div class="Description"><strong>Generate Type:</strong>&nbsp<?php echo $row['generate_type'];?></div>
-                          <div class="Description"><strong>Number Of Pages:</strong>&nbsp<?php echo $row['no_of_pages'];?></div>
-                          <div class="Description"><strong>Contact Number:</strong>&nbsp<?php echo $row['contact_no'];?></div>
-                          <div class="Description"><strong>Book Information:</strong>&nbsp<?php echo $row['book_info'];?></div>
-                          <div class="Description"><strong>Price:</strong>&nbsp<?php echo $row['price'];?></div>
-                          <!-- <div class="Description"><strong>User Id:</strong>&nbsp<?php echo $row['user_id'];?></div>
-                          <div class="Description"><strong>User Name:</strong>&nbsp<?php echo $row['user_name'];?></div>                    
-                           <div class="Description"><strong>Availability Id:</strong>&nbsp<?php echo $row['availability_id'];?></div>
-                          <div class="Description"><strong>Created By:</strong>&nbsp<?php echo $row['created_by'];?> </div>
-                          <div class="Description"><strong>Created At:</strong>&nbsp<?php echo $row['created_at'];?> </div>  -->
-                          <div class="Description"><strong>Status:</strong>&nbsp<?php echo $row['status'];?> </div>
-                          <div class="Description"><strong>Image:</strong>&nbsp<?php echo $row['book_image'];?> </div>
+                        <div class="modal-body" id="modal_body">
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Book Name: </div>
+                            <div class="col-sm-6"><?php echo $row['book_name'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Author: </div>
+                            <div class="col-sm-6"><?php echo $row['author'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Publisher: </div>
+                            <div class="col-sm-6"><?php echo $row['publisher'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Isbn: </div>
+                            <div class="col-sm-6"><?php echo $row['isbn'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Publish Year: </div>
+                            <div class="col-sm-6"><?php echo $row['publish_year'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Language : </div>
+                            <div class="col-sm-6"><?php echo $row['language'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Generate Type : </div>
+                            <div class="col-sm-6"><?php echo $row['generate_type'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Number Of Pages : </div>
+                            <div class="col-sm-6"><?php echo $row['no_of_pages'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Contact Number : </div>
+                            <div class="col-sm-6"><?php echo $row['contact_no'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Book Information : </div>
+                            <div class="col-sm-6"><?php echo $row['book_info'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Price : </div>
+                            <div class="col-sm-6"><?php echo $row['price'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Image : </div>
+                            <div class="col-sm-6"><?php echo $row['book_image'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Status: </div>
+                            <div class="col-sm-6"><?php if($row['status'] == 0 ){ echo "Active";} else{ echo "InActive";}?></div>
+                          </div>
                         </div>
                         <div class="modal-footer">
-                        <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
+                          <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
                           <button type="button" data-dismiss="modal" class="btn btn-success">Close</button>
                           <style>
-                          .modal-body{
-                            font-size:15px;
-                            text-align:justify;
-                            padding-left:110px;
-                            padding-top:30px;
-                            font-family:Roboto,sans-serif;
-                          }
+                            #modal_body{
+                              font-size:14px;
+                              padding-top:30px;
+                              padding-left: 0px;
+                              font-family:Roboto,sans-serif;
+                            }
                           </style>
                         </div>
                       </div>

@@ -44,36 +44,78 @@
                             </button>
                             <center><h4 class="modal-title">User Information</h4></center>
                           </div>
-                        <div class="modal-body">
-                           <div class="Name"><strong>Name: </strong>&nbsp<?php echo $row['user_name'];?> </div>
-                            <div class="Email"><strong>Email: </strong>&nbsp<?php echo $row['user_email'];?></div>
-                            <div class="mobile"><strong>Mobile: </strong>&nbsp<?php echo $row['user_mobile'];?></div>
-                            <div class="mobile"><strong>Street Name: </strong>&nbsp<?php echo $row['street_name'];?></div>
-                            <div class="mobile"><strong>Street Number: </strong>&nbsp<?php echo $row['street_no'];?></div>
-                            <div class="mobile"><strong>Flat Name: </strong>&nbsp<?php echo $row['flat_name'];?></div>
-                            <div class="mobile"><strong>Flat Number: </strong>&nbsp<?php echo $row['flat_no'];?></div>
-                            <div class="mobile"><strong>Location: </strong>&nbsp<?php echo $row['location'];?></div>
-                            <div class="mobile"><strong>Landmark: </strong>&nbsp<?php echo $row['landmark'];?></div>
-                            <div class="mobile"><strong>Pincode: </strong>&nbsp<?php echo $row['pincode'];?></div>
-                            <div class="mobile"><strong>Created Date: </strong>&nbsp<?php echo $row['created_at'];?></div>
-                            <div class="tel"><strong>Status: </strong>&nbsp<?php if($row['status'] == 0 ){ echo "Active";} else{ echo "InActive";}?></div>
+                        <div class="modal-body" id="modal_body">
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Name: </div>
+                            <div class="col-sm-6"><?php echo $row['user_name'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Email: </div>
+                            <div class="col-sm-6"><?php echo $row['user_email'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Mobile: </div>
+                            <div class="col-sm-6"><?php echo $row['user_mobile'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Street Name: </div>
+                            <div class="col-sm-6"><?php echo $row['street_name'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Street No: </div>
+                            <div class="col-sm-6"><?php echo $row['street_no'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Flat Name: </div>
+                            <div class="col-sm-6"><?php echo $row['flat_name'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Flat No: </div>
+                            <div class="col-sm-6"><?php echo $row['flat_no'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Location: </div>
+                            <div class="col-sm-6"><?php echo $row['location'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Landmark: </div>
+                            <div class="col-sm-6"><?php echo $row['landmark'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Pincode: </div>
+                            <div class="col-sm-6"><?php echo $row['pincode'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Status: </div>
+                            <div class="col-sm-6"><?php if($row['status'] == 0 ){ echo "Active";} else{ echo "InActive";}?></div>
+                          </div>
                         </div>
                         <div class="modal-footer">
-                        <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
-                        <button type="button" data-dismiss="modal" class="btn btn-success">Close</button>
-                        <style>
-                        .modal-body{
-                          font-size:15px;
-                          text-align:justify;
-                          padding-left:110px;
-                          padding-top:30px;
-                          font-family:Roboto,sans-serif;
-                        }
-                        </style>
-                          </div>
+                          <!--<button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>-->
+                          <button type="button" data-dismiss="modal" class="btn btn-success">Close</button>
+                          <style>
+                            #modal_body{
+                              font-size:14px;
+                              padding-top:30px;
+                              padding-left: 0px;
+                              font-family:Roboto,sans-serif;
+                            }
+                          </style>
                         </div>
                       </div>
                     </div>
+                  </div>
                     <!-- End Modal Box  here -->
                   </tr>
                   <?php  $i++; } ?>                  
