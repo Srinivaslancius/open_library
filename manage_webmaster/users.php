@@ -62,6 +62,26 @@
                           </div>
                           <div class="row">
                             <div class="col-sm-2"></div>
+                            <div class="col-sm-4">User Address: </div>
+                            <div class="col-sm-6"><?php echo $row['user_address'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Mobile Token: </div>
+                            <div class="col-sm-6"><?php echo $row['mobile_token'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Mobile Imei Address: </div>
+                            <div class="col-sm-6"><?php echo $row['mobile_imei_address'];?></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">Created At: </div>
+                            <div class="col-sm-6"><?php echo $row['created_at'];?></div>
+                          </div>
+                          <!-- <div class="row">
+                            <div class="col-sm-2"></div>
                             <div class="col-sm-4">Street Name: </div>
                             <div class="col-sm-6"><?php echo $row['street_name'];?></div>
                           </div>
@@ -94,7 +114,7 @@
                             <div class="col-sm-2"></div>
                             <div class="col-sm-4">Pincode: </div>
                             <div class="col-sm-6"><?php echo $row['pincode'];?></div>
-                          </div>
+                          </div> -->
                           <div class="row">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-4">Status: </div>
