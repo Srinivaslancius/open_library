@@ -10,7 +10,7 @@ if($setcon == 1) {
 	$password = "";
 	$dbname = "";
 } else {
-	$servername = "192.168.0.115";	
+	$servername = "192.168.0.104";	
 	$username = "root";
 	$password = "root";
 	$dbname = "open_library";
@@ -23,6 +23,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$base_url = "http://localhost/open_library/";
+$base_url = "http://192.168.0.104/open_library/";
 
 ?>

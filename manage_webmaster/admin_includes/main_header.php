@@ -22,6 +22,7 @@ if(!isset($_SESSION['admin_user_id'])) {
     <title><?php echo $getSiteSettingsData['admin_title'];?></title>
     <!-- <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"> -->
+    <link rel="icon" type="image/png" href="<?php echo $base_url . 'uploads/logo/'.$getSiteSettingsData['logo'] ?>" sizes="32x32">    
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/vendor.min.css">
     <link rel="stylesheet" href="css/cosmos.min.css">

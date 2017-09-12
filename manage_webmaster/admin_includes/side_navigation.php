@@ -71,6 +71,14 @@
                 <span class="menu-text">Orders</span>
               </a>
             </li> 
+            <li  class="<?php if($page_name == 'mobile_push_notifications.php' || $page_name == 'send_notifications.php') { echo "active"; } ?>">
+              <a href="mobile_push_notifications.php" aria-haspopup="true">
+                <span class="menu-icon">
+                   <i class="zmdi zmdi-notifications zmdi-hc-fw"></i>
+                </span> 
+                <span class="menu-text">Mobile Push Notifications</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

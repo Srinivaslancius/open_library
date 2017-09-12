@@ -9,8 +9,9 @@
     <meta name="description" content="">
     <title>Open Library</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.html">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"> 
+    <!-- <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">  -->
+    <link rel="icon" type="image/png" href="../uploads/logo/logo.png" sizes="32x32">    
     <link rel="manifest" href="manifest.html">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet"> 
     <link rel="stylesheet" href="css/vendor.min.css">
@@ -23,7 +24,7 @@
         <div class="clearfix">
           <div class="pull-left">
             <a class="authentication-logo" href="index.html">
-              <img src="img/logo.png" alt="" height="25">
+              <img src="../uploads/logo/logo.png" alt="" height="25">
                <!-- <span>cosmos</span> -->
             </a>
           </div>         
