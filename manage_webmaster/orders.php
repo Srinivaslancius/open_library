@@ -51,9 +51,9 @@
                       
             <select id="select-order" class="custom-select">
               <option value="">Choose Status</option>
-              <?php while($getAllOrderStatus = $result1->fetch_assoc()) {  ?>
-                <option value="<?php $getAllOrderStatus['status']; ?>"><?php echo $getAllOrderStatus['status']; ?></option>
-              <?php } ?>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
             </select>           
           </div>
           <div class="clear_fix"></div>
@@ -186,5 +186,10 @@
         </div>      
 
       </div>
+      <script type="text/javascript">
+      $('#select-order').on('change', function () {
+        table.columns(5).search( this.value ).draw();
+    } );
+      </script>
    <?php include_once 'admin_includes/footer.php'; ?>
    <script src="js/tables-datatables.min.js"></script>
