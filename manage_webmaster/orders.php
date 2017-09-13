@@ -44,6 +44,19 @@
           </div>
           <div class="panel-body">
             <div class="table-responsive">
+              <?php $sql1 = "SELECT orders.order_status, order_status.id,order_status.status FROM orders LEFT JOIN order_status ON orders.order_status=order_status.id GROUP BY orders.order_status";
+            $result1 = $conn->query($sql1);
+          ?>
+          <div class="form-group col-md-4">
+                      
+            <select id="select-order" class="custom-select">
+              <option value="">Choose Status</option>
+              <?php while($getAllOrderStatus = $result1->fetch_assoc()) {  ?>
+                <option value="<?php $getAllOrderStatus['status']; ?>"><?php echo $getAllOrderStatus['status']; ?></option>
+              <?php } ?>
+            </select>           
+          </div>
+          <div class="clear_fix"></div>
               <table class="table table-striped table-bordered dataTable" id="table-1">
                 <thead>
                   <tr>
