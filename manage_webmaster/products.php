@@ -16,7 +16,7 @@
                     <th>S.No</th>
                     <th>Book Name</th>
                     <th>Author</th>
-                    <th>Book Price</th>
+                    <!-- <th>Book Price</th> -->
                     <th>Status</th>
                     <th>Actions</th>
                   </tr>
@@ -27,7 +27,7 @@
                     <td><?php echo $i;?></td>
                     <td><?php echo $row['book_name'];?></td>
                     <td><?php echo $row['author'];?></td>
-                    <td><?php echo $row['price'];?></td>
+                    <!-- <td><?php echo $row['price'];?></td> -->
                                        
                     <td><?php if ($row['status']==0) { echo "<span class='label label-outline-success check_active open_cursor' data-incId=".$row['id']." data-status=".$row['status']." data-tbname='products
                     '>Active</span>" ;} else { echo "<span class='label label-outline-info check_active open_cursor' data-status=".$row['status']." data-incId=".$row['id']." data-tbname='products'>In Active</span>" ;} ?></td>
