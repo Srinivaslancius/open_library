@@ -51,9 +51,9 @@
           <div class="form-group col-md-4">                      
             <select id="select-order" class="custom-select">
               <option value="">Choose Status</option>
-              <option value="Pending">Pending</option>
-              <option value="Completed">Completed</option>
-              <option value="Cancelled">Cancelled</option> 
+              <?php while ($getAllStatus = $result1->fetch_assoc()) { ?>
+                  <option value="<?php echo $getAllStatus['status']; ?>"><?php echo $getAllStatus['status']; ?></option>
+                <?php } ?>
             </select>           
           </div>
           <div class="clear_fix"></div>
