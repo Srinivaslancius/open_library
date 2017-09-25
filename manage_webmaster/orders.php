@@ -47,7 +47,6 @@
               <?php $sql1 = "SELECT orders.order_status, order_status.id,order_status.status FROM orders LEFT JOIN order_status ON orders.order_status=order_status.id GROUP BY orders.order_status";
             $result1 = $conn->query($sql1);
           ?>
-          <div class="clear_fix"></div>
           <div class="form-group col-md-4">                      
             <select id="select-order" class="custom-select">
               <option value="">Choose Status</option>

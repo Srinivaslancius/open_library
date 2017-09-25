@@ -1,23 +1,18 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-
-<?php  
+<?php
 $id = $_GET['bid'];
  if (!isset($_POST['submit']))  {
             echo "";
-    } else  {            
-
+    } else  {
             $status = $_POST['status'];
             $title = $_POST['title'];
-            if($_FILES["fileToUpload"]["name"]!='') {
-                                             
-                $fileToUpload = $_FILES["fileToUpload"]["name"];               
-
+            if($_FILES["fileToUpload"]["name"]!='') {           
+                $fileToUpload = $_FILES["fileToUpload"]["name"];
                 $target_dir = "../uploads/banner_images/";
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 $getImgUnlink = getImageUnlink('banner','banners','id',$id,$target_dir);
                 //Send parameters for img val,tablename,clause,id,imgpath for image ubnlink from folder
-
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $sql = "UPDATE `banners` SET title = '$title', banner = '$fileToUpload', status='$status' WHERE id = '$id' ";
                     if($conn->query($sql) === TRUE){
@@ -36,11 +31,10 @@ $id = $_GET['bid'];
                 } else {
                    echo "<script type='text/javascript'>window.location='banners.php?msg=fail'</script>";
                 }
-            }   
-            
+            }            
         }
 ?>
-<?php $getBannersData = getDataFromTables('banners',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL); 
+<?php $getBannersData = getDataFromTables('banners',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
 $getBanners = $getBannersData->fetch_assoc();
  ?>
 <div class="site-content">
@@ -48,11 +42,10 @@ $getBanners = $getBannersData->fetch_assoc();
           <div class="panel-heading">
             <h3 class="m-y-0">Banners</h3>
           </div>
-          <div class="panel-body">            
+          <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Title</label>
                     <input type="text" class="form-control" id="form-control-2" name="title" required value="<?php echo $getBanners['title'];?>">
@@ -76,13 +69,12 @@ $getBanners = $getBannersData->fetch_assoc();
                       <?php } ?>
                    </select>
                     <div class="help-block with-errors"></div>
-                  </div>      
-
+                  </div>
                   <button type="submit" name="submit" value="Submit"  class="btn btn-primary btn-block">Submit</button>
                 </form>
               </div>
             </div>
-            <hr>           
+            <hr>
           </div>
         </div>
       </div>

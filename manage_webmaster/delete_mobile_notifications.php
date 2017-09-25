@@ -1,4 +1,4 @@
-<?php 
+<?php
  include_once('admin_includes/config.php');
 $id = $_GET['bid'];
 $qry = "DELETE FROM mobile_push_notifications WHERE id ='$id'";

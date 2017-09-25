@@ -5,7 +5,7 @@
         
         <div class="panel panel-default panel-table">
           <div class="panel-heading">
-            <!-- <a href="add_users.php" style="float:right">Add User</a> -->
+             <a href="add_users.php" style="float:right">Add User</a> 
             <h3 class="m-t-0 m-b-5">Users</h3>            
           </div>
           <div class="panel-body">
@@ -68,7 +68,7 @@
                           <div class="row">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-4">Mobile Token: </div>
-                            <div class="col-sm-6"><?php echo $row['mobile_token'];?></div>
+                            <div class="col-sm-6" style="word-wrap: break-word;"><?php echo $row['mobile_token'];?></div>
                           </div>
                           <div class="row">
                             <div class="col-sm-2"></div>

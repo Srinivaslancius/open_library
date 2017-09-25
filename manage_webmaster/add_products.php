@@ -25,8 +25,7 @@ if (!isset($_POST['submit']))  {
     $product_images1 = $_FILES['product_images']['name'];
     $file_tmp = $_FILES["product_images"]["tmp_name"];
     $file_destination = '../uploads/book_images/' . $product_images1;
-    move_uploaded_file($file_tmp, $file_destination);
-    
+    move_uploaded_file($file_tmp, $file_destination);   
     $sql1 = "INSERT INTO products (`book_name`,`author`,`publisher`,`isbn`,`publish_year`,`status`,`language`,`generate_type`, `no_of_pages` ,`contact_no` , `price`, `book_info`, `book_image` ) VALUES ('$book_name','$author','$publisher', '$isbn','$publish_year','$status','$language','$generate_type','$no_of_pages','$contact_no','$price','$book_info','$product_images1')";
     $result1 = $conn->query($sql1);
     $last_id = $conn->insert_id;
@@ -96,16 +95,6 @@ if (!isset($_POST['submit']))  {
                     <input type="text" class="form-control" id="form-control-2" name="price" placeholder="Price" data-error="Please enter Price." required>
                     <div class="help-block with-errors"></div>
                   </div>
-                   <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">User Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="user_id" placeholder="User Id" data-error="Please enter User Id." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">User Name</label>
-                    <input type="text" class="form-control" id="form-control-2" name="user_name" placeholder="User Name" data-error="Please enter User Name." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Book Information</label>
                     <input type="text" class="form-control" id="form-control-2" name="book_info" placeholder="Book Information" data-error="Please enter Book Information." required>
@@ -119,11 +108,6 @@ if (!isset($_POST['submit']))  {
                           <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="product_images" id="product_images"  onchange="loadFile(event)"  multiple="multiple" required >
                       </label>
                   </div>
-                  <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Availability Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="availability_id" placeholder="Availability Id" data-error="Please enter Availability Id." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
@@ -135,16 +119,6 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Created By</label>
-                    <input type="text" class="form-control" id="form-control-2" name="created_by" placeholder="Created By" data-error="Please enter Created By." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Created At</label>
-                    <input type="text" class="form-control" id="form-control-2" name="created_at" placeholder="Created At" data-error="Please enter Created At." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <button type="submit" name="submit" value="Submit"  class="btn btn-primary btn-block">Submit</button>
                 </form>
               </div>

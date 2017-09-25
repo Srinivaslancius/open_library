@@ -4,8 +4,6 @@ $id = $_GET['uid'];
 if (!isset($_POST['submit']))  {
             echo "fail";
 } else  {
-    //echo "<pre>"; print_r($_POST); die;
-    //Save data into database
     $book_name = $_POST['book_name'];
     $author = $_POST['author'];
     $publisher = $_POST['publisher'];
@@ -16,26 +14,18 @@ if (!isset($_POST['submit']))  {
     $no_of_pages = $_POST['no_of_pages'];
     $contact_no = $_POST['contact_no'];
     $price = $_POST['price'];
-    /*$user_id = $_POST['user_id'];
-    $user_name = $_POST['user_name'];*/
     $book_info = $_POST['book_info'];
-    /*$avail_id = $_POST['availability_id'];*
-    $created_by = $_POST['created_by'];
-    $created_at = $_POST['created_at'];*/
     $status = $_POST['status'];
     $created_at = date("Y-m-d h:i:s");
     $created_by = $_SESSION['admin_user_id'];
     //save product images into product_images table    
-
     $product_images1 = $_FILES['product_images']['name'];
     if($product_images1 !='') {
         $target_dir = "../uploads/book_images/";
         $target_file = $target_dir . basename($_FILES["product_images"]["name"]);
         $getImgUnlink = getImageUnlink('book_image','products','id',$id,$target_dir);
         if(move_uploaded_file($_FILES["product_images"]["tmp_name"], $target_file)){
-        
-        $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages='$no_of_pages', contact_no = '$contact_no', price = '$price',  book_info = '$book_info', book_image='$product_images1' WHERE id = '$id'";
-        
+        $sql1 = "UPDATE products SET book_name ='$book_name', author ='$author', publisher ='$publisher', isbn ='$isbn', publish_year ='$publish_year', status = '$status', language = '$language', generate_type ='$generate_type', no_of_pages='$no_of_pages', contact_no = '$contact_no', price = '$price',  book_info = '$book_info', book_image='$product_images1' WHERE id = '$id'";       
             if ($conn->query($sql1) === TRUE) {
                 echo "<script type='text/javascript'>window.location='products.php?msg=success'</script>";
             } else {
@@ -54,8 +44,7 @@ if (!isset($_POST['submit']))  {
 }
 }
 ?>
-
-<?php $getProductsData = getDataFromTables('products',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL); 
+<?php $getProductsData = getDataFromTables('products',$status=NULL,'id',$id,$activeStatus=NULL,$activeTop=NULL);
 $getProducts = $getProductsData->fetch_assoc();
  ?>
 <div class="site-content">
@@ -63,7 +52,7 @@ $getProducts = $getProductsData->fetch_assoc();
           <div class="panel-heading">
             <h3 class="m-y-0">Books</h3>
           </div>
-          <div class="panel-body">            
+          <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="post" enctype="multipart/form-data">
@@ -117,16 +106,6 @@ $getProducts = $getProductsData->fetch_assoc();
                     <input type="text" class="form-control" id="form-control-2" name="price" required value="<?php echo $getProducts['price']; ?>" data-error="Please enter Price." required>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">User Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="user_id" required value="<?php echo $getProducts['user_id']; ?>" data-error="Please enter User Id." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">User Name</label>
-                    <input type="text" class="form-control" id="form-control-2" name="user_name" required value="<?php echo $getProducts['user_name']; ?>" data-error="Please enter User Name." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Book Information</label>
                     <input type="text" class="form-control" id="form-control-2" name="book_info" required value="<?php echo $getProducts['book_info']; ?>" data-error="Please enter Book Information." required>
@@ -140,11 +119,6 @@ $getProducts = $getProductsData->fetch_assoc();
                         <input id="form-control-22" class="file-upload-input" type="file" accept="image/*" name="product_images" id="product_image"  onchange="loadFile(event)"  multiple="multiple" >
                       </label>
                   </div>
-                  <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Availability Id</label>
-                    <input type="text" class="form-control" id="form-control-2" name="availability_id" required value="<?php echo $getProducts['availability_id']; ?>" data-error="Please enter Availability Id." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
@@ -156,21 +130,11 @@ $getProducts = $getProductsData->fetch_assoc();
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <!-- <div class="form-group">
-                    <label for="form-control-2" class="control-label">Created By</label>
-                    <input type="text" class="form-control" id="form-control-2" name="created_by" required value="<?php echo $getProducts['created_by']; ?>" data-error="Please enter Created By." required>
-                    <div class="help-block with-errors"></div>
-                  </div>
-                  <div class="form-group">
-                    <label for="form-control-2" class="control-label">Created At</label>
-                    <input type="text" class="form-control" id="form-control-2" name="created_at" required value="<?php echo $getProducts['created_at']; ?>" data-error="Please enter Created At." required>
-                    <div class="help-block with-errors"></div>
-                  </div> -->
                   <button type="submit" name="submit" value="Submit"  class="btn btn-primary btn-block">Submit</button>
                 </form>
               </div>
             </div>
-            <hr> 
+            <hr>
           </div>
         </div>
       </div>

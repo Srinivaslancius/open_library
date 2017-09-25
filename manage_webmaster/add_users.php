@@ -4,9 +4,6 @@ error_reporting(0);
 if (!isset($_POST['submit']))  {
             echo "";
 } else  {
-    //Save data into database
-    /*echo "<pre>";
-    print_r($_POST);die;*/
     $user_name = $_POST['user_name'];
     $user_email = $_POST['user_email'];
     $user_password = encryptPassword($_POST['user_password']);
@@ -20,7 +17,6 @@ if (!isset($_POST['submit']))  {
     $pincode = $_POST['pincode'];
     $created_admin_id = $_SESSION['admin_user_id'];
     $created_at = date("Y-m-d h:i:s");
-    
     $sql = "INSERT INTO users (`user_name`, `user_email`, `user_password`,`user_mobile`,`street_name`,`street_no`,`flat_name`,`flat_no`,`location`,`landmark`,`pincode`,`created_admin_id`, `created_at`, `status`) VALUES ('$user_name', '$user_email','$user_password','$user_mobile','$street_name','$street_no','$flat_name','$flat_no','$location','$landmark','$pincode','$created_admin_id','$created_at', 0)";
     if($conn->query($sql) === TRUE){
        echo "<script type='text/javascript'>window.location='users.php?msg=success'</script>";
@@ -34,77 +30,66 @@ if (!isset($_POST['submit']))  {
           <div class="panel-heading">
             <h3 class="m-y-0">Users</h3>
           </div>
-          <div class="panel-body">            
+          <div class="panel-body">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form data-toggle="validator" method="POST">
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Name</label>
                     <input type="text" name="user_name" class="form-control" id="form-control-2" placeholder="User Name" data-error="Please enter a valid User Name" required autofocus="on">
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Email</label>
                     <input type="email" name="user_email" class="form-control" id="form-control-2" placeholder="Email" data-error="Please enter a valid email address." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Password</label>
                     <input type="password" name="user_password" class="form-control" id="form-control-2" placeholder="Password" data-error="Please enter Correct Password." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Mobile</label>
-                    <input type="text" name="user_mobile" class="form-control" id="form-control-2" placeholder="Mobile" data-error="Please enter Correct Mobile Number." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)">
+                    <input type="text" name="user_mobile" class="form-control" id="user_mobile" placeholder="Mobile" data-error="Please enter Correct Mobile Number." required maxlength="10" pattern="[0-9]{10}" onkeypress="return isNumberKey(event)" onkeyup="checkMobile()">
+                    <span id="mobile_status" style="color: red;"></span>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Street Name</label>
                     <input type="text" name="street_name" class="form-control" id="form-control-2" placeholder="Street Name" data-error="Please enter stree name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Street Number</label>
                     <input type="text" name="street_no" class="form-control" id="form-control-2" placeholder="Street Name" data-error="Please enter stree number." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Flat Name</label>
                     <input type="text" name="flat_name" class="form-control" id="form-control-2" placeholder="Street Name" data-error="Please enter flat name." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">flat Number</label>
                     <input type="text" name="flat_no" class="form-control" id="form-control-2" placeholder="Street Name" data-error="Please enter flat number." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Location</label>
                     <input type="text" name="location" class="form-control" id="form-control-2" placeholder="Location" data-error="Please enter your location." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Landmark</label>
                     <input type="text" name="landmark" class="form-control" id="form-control-2" placeholder="Landmark" data-error="Please enter your near landmark." required>
                     <div class="help-block with-errors"></div>
                   </div>
-
                   <div class="form-group">
                     <label for="form-control-2" class="control-label">Pincode</label>
                     <input type="text" name="pincode" class="form-control" id="form-control-2" placeholder="Pincode" data-error="Please enter correct pincode number." required maxlength="6" onkeypress="return isNumberKey(event)">
                     <div class="help-block with-errors"></div>
-                  </div>
-                  
+                  </div>                  
                   <?php $getStatus = getDataFromTables('user_status',$status=NULL,$clause=NULL,$id=NULL,$activeStatus=NULL,$activeTop=NULL);?>
                   <div class="form-group">
                     <label for="form-control-3" class="control-label">Choose your status</label>
@@ -116,16 +101,14 @@ if (!isset($_POST['submit']))  {
                    </select>
                     <div class="help-block with-errors"></div>
                   </div>                  
-                
                   <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
               </div>
             </div>
-            <hr>           
+            <hr>
           </div>
         </div>
-      </div>
-  
+      </div>  
 <?php include_once 'admin_includes/footer.php'; ?>
 <script type="text/javascript">
     function isNumberKey(evt){
@@ -133,5 +116,27 @@ if (!isset($_POST['submit']))  {
         if (charCode > 31 && (charCode < 48 || charCode > 57))
             return false;
         return true;
+    }
+</script>
+
+<!--Script for already existed mobile number checking -->
+<script>
+  function checkMobile() {
+      var mobile1 = document.getElementById("user_mobile").value;
+      if (mobile1){
+        $.ajax({
+        type: "POST",
+        url: "check_mobile_avail.php",
+        data: {
+          user_mobile:mobile1,
+        },
+        success: function (response) {
+          $( '#mobile_status' ).html(response);
+          if (response == "Mobile Number Already Exist"){
+            $("#user_mobile").val("");
+          }
+          }
+         });
+      }
     }
 </script>

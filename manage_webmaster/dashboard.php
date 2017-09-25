@@ -1,6 +1,4 @@
 <?php include_once 'admin_includes/main_header.php'; ?>
-   
-      
       <div class="site-content">
         <div class="row">
           <a href="users.php">
